@@ -1,0 +1,21 @@
+version: 2.1
+
+jobs:
+  #Job one with unique name
+  say_hello:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run: echo "Say hello to YAML!"
+  #Job two with unique name
+  say_hi:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run: echo "Say HI to YAML"
+
+workflows:
+  hello_and_goodbye:
+    jobs:
+      - say_hello
+      - say_hi
